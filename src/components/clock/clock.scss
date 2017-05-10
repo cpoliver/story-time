@@ -1,0 +1,67 @@
+$diameter: 600px;
+$radius: $diameter / 2;
+
+$center-diameter: 24px;
+
+$face-color: #ddd;
+$hand-color: #000;
+
+$hour-hand-length: $radius * 0.95;
+$minute-hand-length: $radius * 0.65;
+$second-hand-length: $radius * 0.975;
+
+$hour-hand-width: 8px;
+$minute-hand-width: 16px;
+$second-hand-width: 2px;
+
+
+.clock {
+  background: $face-color;
+  border-radius: $diameter;
+  height: $diameter;
+  margin: 20px auto;
+  position: relative;
+  width: $diameter;
+
+  .clock-hand {
+    background: black;
+    left: $diameter / 2;
+    position: absolute;
+    transform-origin: bottom;
+
+    &-hour {
+      height: $hour-hand-length;
+      left: $radius - ($hour-hand-width / 2);
+      margin-top: $radius - $hour-hand-length;
+      width: $hour-hand-width;
+    }
+
+    &-minute {
+      height: $minute-hand-length;
+      left: $radius - ($minute-hand-width / 2);
+      margin-top: $radius - $minute-hand-length;
+      width: $minute-hand-width;
+
+      transform: rotate(215deg);
+    }
+
+    &-second {
+      height: $second-hand-length;
+      left: $radius - ($second-hand-width / 2);
+      margin-top: $radius - $second-hand-length;
+      width: $second-hand-width;
+
+      transform: rotate(145deg);
+    }
+  }
+
+  &-center {
+    background: $hand-color;
+    border-radius: $center-diameter;
+    height: $center-diameter;
+    left: $radius - ($center-diameter / 2);
+    position: absolute;
+    top: $radius - ($center-diameter / 2);
+    width: $center-diameter;
+  }
+}

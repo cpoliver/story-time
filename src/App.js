@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
+import Clock from './components/clock';
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Story Time</h2>
-        </div>
+        <Clock />
       </div>
     );
   }
