@@ -22,8 +22,6 @@ function Clock({ hours, minutes, seconds }) {
 const makeValidator = max => (props, propName, componentName) => {
   const value = props[propName];
 
-  console.log(props, propName, componentName);
-
   if (value === undefined || typeof value !== 'number' || value < 0 || value > max) {
     return new Error(
       `Invalid prop "${propName}" supplied to "${componentName}".
