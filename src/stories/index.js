@@ -1,17 +1,24 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
-import Button from './Button';
-import Welcome from './Welcome';
 
-storiesOf('Welcome', module)
-  .add('to Storybook', () => (
-    <Welcome showApp={linkTo('Button')}/>
-  ));
+import App from '../App';
+import Clock from '../components/clock';
 
-storiesOf('Button', module)
-  .add('with text', () => (
-    <Button onClick={action('clicked')}>Hello Button</Button>
+storiesOf('App', module)
+  .add('beer o\'clock', () => (
+    <App />
   ))
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
+
+storiesOf('Clock', module)
+  .add('breakfast time', () => (
+    <Clock hours={7} minutes={0} seconds={15} />
+  ))
+  .add('lunch time', () => (
+    <Clock hours={12} minutes={55} seconds={15} />
+  ))
+  .add('dinner time', () => (
+    <Clock hours={7} minutes={45} seconds={5} />
+  ))
+  .add('bed time', () => (
+    <Clock hours={12} minutes={55} seconds={10} />
   ));
