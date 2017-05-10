@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Clock />
+        <Clock hours={12} minutes={15} seconds={30} />
       </div>
     );
   }

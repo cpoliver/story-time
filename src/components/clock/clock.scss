@@ -41,8 +41,6 @@ $second-hand-width: 2px;
       left: $radius - ($minute-hand-width / 2);
       margin-top: $radius - $minute-hand-length;
       width: $minute-hand-width;
-
-      transform: rotate(215deg);
     }
 
     &-second {
@@ -50,8 +48,6 @@ $second-hand-width: 2px;
       left: $radius - ($second-hand-width / 2);
       margin-top: $radius - $second-hand-length;
       width: $second-hand-width;
-
-      transform: rotate(145deg);
     }
   }
 
