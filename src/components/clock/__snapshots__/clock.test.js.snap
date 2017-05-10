@@ -1,0 +1,28 @@
+exports[`test renders correctly 1`] = `
+<div
+  className="clock">
+  <div
+    className="clock-center" />
+  <div
+    className="clock-hand clock-hand-hour"
+    style={
+      Object {
+        "transform": "rotate(90deg)",
+      }
+    } />
+  <div
+    className="clock-hand clock-hand-minute"
+    style={
+      Object {
+        "transform": "rotate(72deg)",
+      }
+    } />
+  <div
+    className="clock-hand clock-hand-second"
+    style={
+      Object {
+        "transform": "rotate(270deg)",
+      }
+    } />
+</div>
+`;
