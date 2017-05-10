@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 import Clock from './components/clock';
 
 const getTime = () => {
+  const to12hr = hours => hours > 12 ? hours % 12 : hours;
+
   const now = new Date();
+  const hours = to12hr(now.getHours());
 
   return {
-    hours: now.getHours(),
+    hours,
     minutes: now.getMinutes(),
     seconds: now.getSeconds()
   };
