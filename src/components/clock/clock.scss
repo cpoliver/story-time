@@ -6,6 +6,7 @@ $center-diameter: 24px;
 $face-color: #111;
 $hand-color: #bbb;
 $marker-color: #e8ebe4;
+$marker-border-color: #fff;
 
 $hour-hand-length: $radius * 0.65;
 $minute-hand-length: $radius * 0.95;
@@ -23,6 +24,11 @@ $second-marker-width-bold: 4px;
 $hour-marker-round-diameter: 44px;
 $hour-marker-round-radius: $hour-marker-round-diameter / 2;
 $hour-marker-round-offset: 30px;
+
+@mixin hour-marker {
+  background: $marker-color;
+  border: $marker-border-color;
+}
 
 @mixin hour-marker-rotate($hour-position) {
   $degrees: (360 / 12) * $hour-position;
@@ -75,11 +81,18 @@ $hour-marker-round-offset: 30px;
     }
   }
 
-  &-hour-marker {
-    background: $marker-color;
+  &-hour-marker-triangle {
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 80px solid $marker-color;
+    height: 0;
+    left: $radius - 30px;
+    top: $hour-marker-round-offset;
+    width: 0;
   }
 
   &-hour-marker-round {
+    @include hour-marker;
     border-radius: $hour-marker-round-diameter;
     height: $hour-marker-round-diameter;
     left: $radius - $hour-marker-round-radius;
