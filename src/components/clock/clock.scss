@@ -21,9 +21,14 @@ $second-marker-offset: $second-marker-length * 2;
 $second-marker-width: 2px;
 $second-marker-width-bold: 4px;
 
+$hour-marker-offset: 30px;
+
+$hour-marker-triangle-height: 80px;
+$hour-marker-triangle-width: 30px;
+
 $hour-marker-round-diameter: 44px;
 $hour-marker-round-radius: $hour-marker-round-diameter / 2;
-$hour-marker-round-offset: 30px;
+
 
 @mixin hour-marker {
   background: $marker-color;
@@ -32,7 +37,7 @@ $hour-marker-round-offset: 30px;
 
 @mixin hour-marker-rotate($hour-position) {
   $degrees: (360 / 12) * $hour-position;
-  transform: translate(0, $hour-marker-round-offset) rotate(#{$degrees}deg);
+  transform: translate(0, $hour-marker-offset) rotate(#{$degrees}deg);
 }
 
 .clock {
@@ -82,13 +87,27 @@ $hour-marker-round-offset: 30px;
   }
 
   &-hour-marker-triangle {
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-top: 80px solid $marker-color;
+    border-left: $hour-marker-triangle-width solid transparent;
+    border-right: $hour-marker-triangle-width solid transparent;
+    border-top: $hour-marker-triangle-height solid $marker-color;
     height: 0;
-    left: $radius - 30px;
-    top: $hour-marker-round-offset;
+    left: $radius - $hour-marker-triangle-width;
+    top: $hour-marker-offset;
     width: 0;
+  }
+
+  &-hour-marker-baton {
+    @include hour-marker;
+    height: $hour-marker-triangle-height;
+    left: $radius - ($hour-marker-triangle-width / 2);
+    top: $diameter - ($hour-marker-triangle-height + $hour-marker-offset);
+    width: $hour-marker-triangle-width;
+
+    &:nth-of-type(10) {
+      left: $hour-marker-offset + $hour-marker-triangle-width;
+      top: $radius - ($hour-marker-triangle-width + 10);
+      transform: rotate(90deg);
+    }
   }
 
   &-hour-marker-round {
@@ -96,7 +115,7 @@ $hour-marker-round-offset: 30px;
     border-radius: $hour-marker-round-diameter;
     height: $hour-marker-round-diameter;
     left: $radius - $hour-marker-round-radius;
-    transform-origin: $hour-marker-round-radius ($radius - $hour-marker-round-offset);
+    transform-origin: $hour-marker-round-radius ($radius - $hour-marker-offset);
     width: $hour-marker-round-diameter;
 
     &:nth-of-type(1) { @include hour-marker-rotate(1); }
