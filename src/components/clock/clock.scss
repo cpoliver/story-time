@@ -3,8 +3,8 @@ $radius: $diameter / 2;
 
 $center-diameter: 24px;
 
-$face-color: #ddd;
-$hand-color: #000;
+$face-color: #111;
+$hand-color: #bbb;
 
 $hour-hand-length: $radius * 0.65;
 $minute-hand-length: $radius * 0.95;
@@ -47,6 +47,7 @@ $second-marker-width-bold: 4px;
     position: absolute;
     top: $radius - ($center-diameter / 2);
     width: $center-diameter;
+    z-index: 1;
   }
 
   &-second-marker {
@@ -64,7 +65,7 @@ $second-marker-width-bold: 4px;
   }
 
   .clock-hand {
-    background: black;
+    background: $hand-color;
     left: $diameter / 2;
     position: absolute;
     transform-origin: bottom;
@@ -84,6 +85,7 @@ $second-marker-width-bold: 4px;
     }
 
     &-second {
+      background: #176951;
       height: $second-hand-length;
       left: $radius - ($second-hand-width / 2);
       margin-top: $radius - $second-hand-length;
