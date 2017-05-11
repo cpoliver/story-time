@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "npm-run-all": "^4.0.2",
+    "ramda": "^0.23.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },

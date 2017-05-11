@@ -1,4 +1,5 @@
 import React from 'react';
+import { concat, map, range, when } from 'ramda';
 
 import './clock.css';
 
@@ -8,16 +9,27 @@ const makeStyle = (divisor, value) => ({
   transform: `rotate(${calculateRotation(divisor, value)}deg)`
 });
 
-function Clock({ hours, minutes, seconds }) {
-  return (
-    <div className="clock">
-      <div className="clock-center" />
-      <div className="clock-hand clock-hand-hour" style={makeStyle(12, hours)} />
-      <div className="clock-hand clock-hand-minute" style={makeStyle(60, minutes)} />
-      <div className="clock-hand clock-hand-second" style={makeStyle(60, seconds)} />
-    </div>
-  );
-}
+const repeat = (count, fn) => map(fn, range(0, count));
+
+const createSecondMarkers = () => repeat(30, i => {
+  let className = when(
+    () => i % 5 === 0,
+    concat('clock-second-marker-bold ')
+  )('clock-marker clock-second-marker');
+
+  return <div key={i} className={className} style={makeStyle(60, i)} />
+});
+
+const Clock = ({ hours, minutes, seconds }) => (
+  <div className="clock">
+    <div className="clock-inner" />
+    {createSecondMarkers()}
+    <div className="clock-center" />
+    <div className="clock-hand clock-hand-hour" style={makeStyle(12, hours)} />
+    <div className="clock-hand clock-hand-minute" style={makeStyle(60, minutes)} />
+    <div className="clock-hand clock-hand-second" style={makeStyle(60, seconds)} />
+  </div>
+);
 
 const makeValidator = max => (props, propName, componentName) => {
   const value = props[propName];
