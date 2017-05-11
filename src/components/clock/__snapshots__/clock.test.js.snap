@@ -2,9 +2,31 @@ exports[`test renders correctly 1`] = `
 <div
   className="clock">
   <div
+    className="clock-marker clock-hour-marker clock-hour-marker-round" />
+  <div
+    className="clock-marker clock-hour-marker clock-hour-marker-round" />
+  <div
+    className="clock-marker clock-hour-marker clock-hour-marker-round" />
+  <div
+    className="clock-marker clock-hour-marker clock-hour-marker-round" />
+  <div
+    className="clock-marker clock-hour-marker clock-hour-marker-round" />
+  <div
+    className="clock-marker clock-hour-marker clock-hour-marker-round" />
+  <div
+    className="clock-marker clock-hour-marker clock-hour-marker-round" />
+  <div
+    className="clock-marker clock-hour-marker clock-hour-marker-round" />
+  <div
+    className="clock-marker clock-hour-marker clock-hour-marker-triangle" />
+  <div
+    className="clock-marker clock-hour-marker clock-hour-marker-baton" />
+  <div
+    className="clock-marker clock-hour-marker clock-hour-marker-baton" />
+  <div
     className="clock-inner" />
   <div
-    className="clock-second-marker-bold clock-marker clock-second-marker"
+    className="clock-marker clock-second-marker clock-second-marker-bold"
     style={
       Object {
         "transform": "rotate(0deg)",
@@ -39,7 +61,7 @@ exports[`test renders correctly 1`] = `
       }
     } />
   <div
-    className="clock-second-marker-bold clock-marker clock-second-marker"
+    className="clock-marker clock-second-marker clock-second-marker-bold"
     style={
       Object {
         "transform": "rotate(30deg)",
@@ -74,7 +96,7 @@ exports[`test renders correctly 1`] = `
       }
     } />
   <div
-    className="clock-second-marker-bold clock-marker clock-second-marker"
+    className="clock-marker clock-second-marker clock-second-marker-bold"
     style={
       Object {
         "transform": "rotate(60deg)",
@@ -109,7 +131,7 @@ exports[`test renders correctly 1`] = `
       }
     } />
   <div
-    className="clock-second-marker-bold clock-marker clock-second-marker"
+    className="clock-marker clock-second-marker clock-second-marker-bold"
     style={
       Object {
         "transform": "rotate(90deg)",
@@ -144,7 +166,7 @@ exports[`test renders correctly 1`] = `
       }
     } />
   <div
-    className="clock-second-marker-bold clock-marker clock-second-marker"
+    className="clock-marker clock-second-marker clock-second-marker-bold"
     style={
       Object {
         "transform": "rotate(120deg)",
@@ -179,7 +201,7 @@ exports[`test renders correctly 1`] = `
       }
     } />
   <div
-    className="clock-second-marker-bold clock-marker clock-second-marker"
+    className="clock-marker clock-second-marker clock-second-marker-bold"
     style={
       Object {
         "transform": "rotate(150deg)",

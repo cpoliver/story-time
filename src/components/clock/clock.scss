@@ -5,6 +5,7 @@ $center-diameter: 24px;
 
 $face-color: #111;
 $hand-color: #bbb;
+$marker-color: #e8ebe4;
 
 $hour-hand-length: $radius * 0.65;
 $minute-hand-length: $radius * 0.95;
@@ -19,6 +20,15 @@ $second-marker-offset: $second-marker-length * 2;
 $second-marker-width: 2px;
 $second-marker-width-bold: 4px;
 
+$hour-marker-round-diameter: 44px;
+$hour-marker-round-radius: $hour-marker-round-diameter / 2;
+$hour-marker-round-offset: 30px;
+
+@mixin hour-marker-rotate($hour-position) {
+  $degrees: (360 / 12) * $hour-position;
+  transform: translate(0, $hour-marker-round-offset) rotate(#{$degrees}deg);
+}
+
 .clock {
   background: $face-color;
   border-radius: $diameter;
@@ -28,12 +38,16 @@ $second-marker-width-bold: 4px;
   width: $diameter;
   z-index: -3;
 
+  * {
+    position: absolute;
+    z-index: 1;
+  }
+
   &-inner {
     background: $face-color;
     border-radius: $diameter - $second-marker-offset;
     height: $diameter - $second-marker-offset;
     left: $second-marker-length;
-    position: absolute;
     top: $second-marker-length;
     width: $diameter - $second-marker-offset;
     z-index: 0;
@@ -44,17 +58,14 @@ $second-marker-width-bold: 4px;
     border-radius: $center-diameter;
     height: $center-diameter;
     left: $radius - ($center-diameter / 2);
-    position: absolute;
     top: $radius - ($center-diameter / 2);
     width: $center-diameter;
-    z-index: 1;
   }
 
   &-second-marker {
     background: #fff;
     height: $diameter;
     left: $radius - ($second-marker-width / 2);
-    position: absolute;
     width: $second-marker-width;
     z-index: -2;
 
@@ -64,10 +75,30 @@ $second-marker-width-bold: 4px;
     }
   }
 
+  &-hour-marker {
+    background: $marker-color;
+  }
+
+  &-hour-marker-round {
+    border-radius: $hour-marker-round-diameter;
+    height: $hour-marker-round-diameter;
+    left: $radius - $hour-marker-round-radius;
+    transform-origin: $hour-marker-round-radius ($radius - $hour-marker-round-offset);
+    width: $hour-marker-round-diameter;
+
+    &:nth-of-type(1) { @include hour-marker-rotate(1); }
+    &:nth-of-type(2) { @include hour-marker-rotate(2); }
+    &:nth-of-type(3) { @include hour-marker-rotate(4); }
+    &:nth-of-type(4) { @include hour-marker-rotate(5); }
+    &:nth-of-type(5) { @include hour-marker-rotate(7); }
+    &:nth-of-type(6) { @include hour-marker-rotate(8); }
+    &:nth-of-type(7) { @include hour-marker-rotate(10); }
+    &:nth-of-type(8) { @include hour-marker-rotate(11); }
+  }
+
   .clock-hand {
     background: $hand-color;
     left: $diameter / 2;
-    position: absolute;
     transform-origin: bottom;
 
     &-hour {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { concat, map, range, when } from 'ramda';
+import { append, concat, flip, map, range, when } from 'ramda';
 
 import './clock.css';
 
@@ -14,14 +14,27 @@ const repeat = (count, fn) => map(fn, range(0, count));
 const createSecondMarkers = () => repeat(30, i => {
   let className = when(
     () => i % 5 === 0,
-    concat('clock-second-marker-bold ')
+    flip(concat)(' clock-second-marker-bold')
   )('clock-marker clock-second-marker');
 
   return <div key={i} className={className} style={makeStyle(60, i)} />
 });
 
+const createHourMarkers = () => {
+  const markers = range(0, 8).map(i =>
+    <div key={i} className="clock-marker clock-hour-marker clock-hour-marker-round" />
+  );
+
+  return append([
+    <div key={8} className="clock-marker clock-hour-marker clock-hour-marker-triangle" />,
+    <div key={9} className="clock-marker clock-hour-marker clock-hour-marker-baton" />,
+    <div key={10} className="clock-marker clock-hour-marker clock-hour-marker-baton" />
+  ], markers);
+}
+
 const Clock = ({ hours, minutes, seconds }) => (
   <div className="clock">
+    {createHourMarkers()}
     <div className="clock-inner" />
     {createSecondMarkers()}
     <div className="clock-center" />
