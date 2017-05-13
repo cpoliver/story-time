@@ -38,7 +38,7 @@ class App extends Component {
     const { hours, minutes, seconds } = this.state;
 
     return (
-      <div className="App">
+      <div>
         <Clock hours={hours} minutes={minutes} seconds={seconds} />
       </div>
     );
