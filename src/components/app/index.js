@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Clock from '../clock';
+import Overlay from '../overlay';
 
 const getTime = () => {
   const to12hr = hours => hours > 12 ? hours % 12 : hours;
@@ -39,6 +40,7 @@ class App extends Component {
 
     return (
       <div>
+        <Overlay />
         <Clock hours={hours} minutes={minutes} seconds={seconds} />
       </div>
     );
