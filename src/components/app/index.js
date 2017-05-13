@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Clock from './components/clock';
+import Clock from '../clock';
 
 const getTime = () => {
   const to12hr = hours => hours > 12 ? hours % 12 : hours;
